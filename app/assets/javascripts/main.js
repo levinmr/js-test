@@ -1,6 +1,24 @@
 window.onload = function() {
-  test("A test.", function() {
-    assert(true, "The test suite is running.");
-    assert(false, "Fail!");
-  });
+  function animateIt(elementId) {
+    var elem = document.getElementById(elementId);
+    var tick = 0;
+    var timer = setInterval(function(){
+      if (tick < 100) {
+        elem.style.left = elem.style.top = tick + "px";
+        tick++;
+      }
+      else {
+        clearInterval(timer);
+        test("Test 1", function() {
+          assert(tick == 100,
+          "Tick accessed via a closure.");
+          assert(elem,
+          "Element also accessed via a closure.");
+          assert(timer,
+          "Timer reference also obtained via a closure." );
+        });
+      }
+    }, 10);
+  }
+  animateIt('box');
 };
