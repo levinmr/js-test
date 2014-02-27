@@ -10,6 +10,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'haml-rails'
+gem 'quiet_assets'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
